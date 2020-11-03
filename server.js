@@ -1,5 +1,7 @@
 const express = require("express");
+const serveStatic = require("serve-static");
 const app = express();
+const path = require("path");
 require("dotenv").config();
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -12,6 +14,7 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))
+app.use(serveStatic(path.join(__dirname, 'dist')));
 
 // configure the database
 const dbConfig = require('./app/config/mongodb.config.js');
