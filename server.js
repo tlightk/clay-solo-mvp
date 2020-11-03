@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
+
+const PORT = process.env.PORT || 9000;
 
 const cors = require("cors");
 const corsOptions = {
@@ -13,7 +16,6 @@ app.use(cors(corsOptions))
 // configure the database
 const dbConfig = require('./app/config/mongodb.config.js');
 const mongoose = require('mongoose');
-const { db } = require("./app/models/profile.model.js");
 
 mongoose.Promise = global.Promise;
 
@@ -29,8 +31,6 @@ mongoose.connect(dbConfig.url)
 require('./app/routes/profile.routes.js')(app);
 
 // create server
-const server = app.listen(9000, () => {
-    var host = server.address().address
-    var port = server.address().port
-    console.log("App listening at http://%s:%s", host, port)
+const server = app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
 })
