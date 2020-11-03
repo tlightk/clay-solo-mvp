@@ -2,13 +2,13 @@
   <div id="app">
     <h1 id="appTitle">namaewa</h1>
     <template v-if="currentView === 'allProfiles'">
-      <AllProfiles @add="switchToAddProfile"/>
+      <AllProfiles @add="switchToAddProfile" />
     </template>
     <template v-if="currentView === 'addProfile'">
-      <AddProfile @go-home="switchToAllProfiles"/>
+      <AddProfile @go-home="switchToAllProfiles" />
     </template>
     <template v-if="currentView === 'singleProfile'">
-      <SingleProfile @go-home="switchToSingleProfiles"/>
+      <SingleProfile @go-home="switchToSingleProfiles" />
     </template>
   </div>
 </template>
@@ -17,6 +17,7 @@
 import AllProfiles from "./components/AllProfiles.vue";
 import AddProfile from "./components/AddProfile.vue";
 import SingleProfile from "./components/SingleProfile.vue";
+import http from "../http-common";
 
 export default {
   name: "App",
@@ -27,7 +28,7 @@ export default {
   },
   data: () => ({
     currentView: "allProfiles",
-    buttonText: "Add Profile",
+    profilesList: [],
   }),
   methods: {
     switchToAllProfiles() {
@@ -39,7 +40,24 @@ export default {
     switchToSingleProfile() {
       this.currentView = "singleProfile";
     },
+    retrieveProfiles() {
+      http
+        .get("/profiles")
+        .then((response) => {
+          this.profilesList = response.data;
+          console.log(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    refreshProfiles() {
+      this.retrieveProfiles();
+    }
   },
+  mounted() {
+    this.retrieveProfiles();
+  }
 };
 </script>
 
