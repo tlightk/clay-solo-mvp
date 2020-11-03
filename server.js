@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 9000;
 
 const cors = require("cors");
 const corsOptions = {
-    origin: true,
+    origin: 'http://localhost:4200',
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))

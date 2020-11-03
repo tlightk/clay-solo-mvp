@@ -17,7 +17,7 @@
 import AllProfiles from "./components/AllProfiles.vue";
 import AddProfile from "./components/AddProfile.vue";
 import SingleProfile from "./components/SingleProfile.vue";
-import http from "../http-common";
+import http from "./http-common";
 
 export default {
   name: "App",
