@@ -2,14 +2,12 @@
   <div id="app">
     <h1 id="appTitle">namaewa</h1>
     <template v-if="currentView === 'allProfiles'">
-      <AllProfiles />
+      <AllProfiles @add="switchToAddProfile"/>
     </template>
     <template v-if="currentView === 'addProfile'">
-      <AddProfile />
+      <AddProfile @go-home="switchToAllProfiles"/>
     </template>
-    <button id="addProfileButton" v-on:click="switchToAddProfile">
-      {{ buttonText }}
-    </button>
+    
   </div>
 </template>
 
