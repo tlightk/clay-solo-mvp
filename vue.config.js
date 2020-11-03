@@ -1,5 +1,11 @@
 module.exports = {
-    devServer: {
-      port: 4200
-    }
-  }
+  lintOnSave: false,
+  devServer: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:4200",
+        secure: false,
+      },
+    },
+  },
+};
