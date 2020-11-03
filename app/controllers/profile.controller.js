@@ -4,7 +4,6 @@ const Profile = require('../models/profile.model.js');
 exports.create = (req, res) => {
     // create a profile
     const profile = new Profile({
-        _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         ageRange: req.body.ageRange,
         occupation: req.body.occupation,

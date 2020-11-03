@@ -68,9 +68,8 @@ export default {
   },
   methods: {
     saveProfile() {
-      if (this.name === "") {
+      if (this.name === null) {
         alert("Name input is required!");
-        preventDefault();
       } else {
         const data = {
           name: this.profile.name,
@@ -87,7 +86,7 @@ export default {
             console.log(response.data);
           })
           .catch((err) => {
-            console.log(e);
+            console.log(err);
           });
         this.submitted = true;
       }

@@ -7,19 +7,23 @@
     <template v-if="currentView === 'addProfile'">
       <AddProfile @go-home="switchToAllProfiles"/>
     </template>
-    
+    <template v-if="currentView === 'singleProfile'">
+      <SingleProfile @go-home="switchToSingleProfiles"/>
+    </template>
   </div>
 </template>
 
 <script>
 import AllProfiles from "./components/AllProfiles.vue";
 import AddProfile from "./components/AddProfile.vue";
+import SingleProfile from "./components/SingleProfile.vue";
 
 export default {
   name: "App",
   components: {
     AllProfiles: AllProfiles,
     AddProfile: AddProfile,
+    SingleProfile: SingleProfile,
   },
   data: () => ({
     currentView: "allProfiles",
@@ -31,6 +35,9 @@ export default {
     },
     switchToAddProfile() {
       this.currentView = "addProfile";
+    },
+    switchToSingleProfile() {
+      this.currentView = "singleProfile";
     },
   },
 };
