@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const path = require("path");
 const app = express();
 
-MongoClient.connect('mongodb-connection-string', (err, client) => {
+MongoClient.connect('mongodb+srv://clay:wordpass1@cluster0.otqjm.mongodb.net/<dbname>?retryWrites=true&w=majority', (err, client) => {
   app.use(express.static(path.resolve(__dirname, ".", "dist")));
   app.use(bodyParser.urlencoded({ extended: true }))
 
