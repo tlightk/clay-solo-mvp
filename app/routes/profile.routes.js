@@ -1,11 +1,11 @@
 module.exports = function(app) {
-    const customers = require('../controllers/profile.controller.js');
+    const profile = require('../controllers/profile.controller.js');
 
     //create a new profile
     app.post('/api/profile', profile.create);
 
     //retrieve all profiles
-    app.get('/api/profiles', profiles.findAll);
+    app.get('/api/profiles', profile.findAll);
 
     //delete a profile
     app.delete('api/profile/:profileId', profile.delete);

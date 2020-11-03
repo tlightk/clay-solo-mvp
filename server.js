@@ -15,12 +15,13 @@ app.use(cors(corsOptions))
 
 // configure the database
 const dbConfig = require('./app/config/mongodb.config.js');
+const db = process.env.MONGO_DB_URI;
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
 // connect to the database
-mongoose.connect(dbConfig.url)
+mongoose.connect(db)
     .then(() => {
         console.log("Successfully connected to MongoDB");
     }).catch(err => {
