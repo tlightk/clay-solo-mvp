@@ -2,19 +2,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const path = require("path");
+const dotenv = require("dotenv").config();
+const db = process.env.MONO_DB_URI;
 const app = express();
 
-MongoClient.connect('mongodb+srv://clay:wordpass1@cluster0.otqjm.mongodb.net/<dbname>?retryWrites=true&w=majority', (err, client) => {
+console.log(db);
+MongoClient.connect(db, {useUnifiedTopology: true}, (err, client) => {
+  if(err) return console.error(err);
+  console.log('Connected to Database');
+})
+
   app.use(express.static(path.resolve(__dirname, ".", "dist")));
   app.use(bodyParser.urlencoded({ extended: true }))
 
-  app.post('/quotes', (req, res) => {
+  app.post('/', (req, res) => {
     //
   })
-
-  app.get("/api", (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
-  });
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, ".", "dist", "index.html"));
@@ -25,7 +28,7 @@ MongoClient.connect('mongodb+srv://clay:wordpass1@cluster0.otqjm.mongodb.net/<db
   })
 
 
-})
+
 
 
 
