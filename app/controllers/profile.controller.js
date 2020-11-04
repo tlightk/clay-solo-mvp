@@ -3,6 +3,7 @@ const Profile = require('../models/profile.model.js');
 // POST a profile
 exports.create = (req, res) => {
     // create a profile
+    console.log(req.body);
     const profile = new Profile({
         name: req.body.name,
         ageRange: req.body.ageRange,
@@ -10,10 +11,12 @@ exports.create = (req, res) => {
         interests: req.body.interests,
         description: req.body.description
     });
+    console.log(profile);
 
     // save profile to the database
     profile.save()
     .then(data => {
+        console.log(data);
         res.send(data);
     }).catch(err => {
         res.status(500).send({

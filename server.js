@@ -14,11 +14,11 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://namaewa-staging.herokuapp.com/"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "https://namaewa-staging.herokuapp.com/"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
 // configure the database
@@ -40,6 +40,6 @@ mongoose.connect(db)
 require('./app/routes/profile.routes.js')(app);
 
 // create server
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
 })

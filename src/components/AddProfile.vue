@@ -23,20 +23,40 @@
           />
         </div>
         <div>
-          <label for="age">Age range:</label>
-          <input type="text" id="ageInput" name="age" />
+          <label for="ageRange">Age range:</label>
+          <input
+            type="text"
+            id="ageRangeInput"
+            name="ageRange"
+            v-model="profile.ageRange"
+          />
         </div>
         <div>
           <label for="occupation">Occupation:</label>
-          <input type="text" id="occupationInput" name="occupation" />
+          <input
+            type="text"
+            id="occupationInput"
+            name="occupation"
+            v-model="profile.occupation"
+          />
         </div>
         <div>
           <label for="interests">Interests:</label>
-          <input type="text" id="interestsinput" name="interests" />
+          <input
+            type="text"
+            id="interestsInput"
+            name="interests"
+            v-model="profile.interests"
+          />
         </div>
         <div>
           <label for="description">Description:</label>
-          <input type="text" id="descriptionInput" name="description" />
+          <input
+            type="text"
+            id="descriptionInput"
+            name="description"
+            v-model="profile.description"
+          />
         </div>
         <button v-on:click="saveProfile">Create New Friend</button>
       </div>
@@ -58,7 +78,7 @@ export default {
       profile: {
         id: 0,
         name: "",
-        age: "",
+        ageRange: "",
         occupation: "",
         interests: "",
         description: "",
@@ -73,7 +93,7 @@ export default {
       } else {
         const data = {
           name: this.profile.name,
-          age: this.profile.age,
+          ageRange: this.profile.ageRange,
           occupation: this.profile.occupation,
           interests: this.profile.interests,
           description: this.profile.description,
