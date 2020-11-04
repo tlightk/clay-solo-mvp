@@ -1,6 +1,7 @@
 <template>
   <div class="allProfiles">
-    <h1>This view is AllProfiles</h1>
+    <h1>Here are your friends!</h1>
+    <h4>Click on a friend to see their details</h4>
     <input
       type="button"
       id="addProfileButton"
@@ -11,7 +12,7 @@
     <div class="profileCardContainer" v-if="profilesList">
       <div v-for="(profile, index) in profilesList" :key="index">
         <div class="profileCard" v-on:click="$emit('select-profile', [index])">
-         <span class="displayName">{{ profile.name }}</span>
+          <span class="displayName">{{ profile.name }}</span>
         </div>
       </div>
     </div>
@@ -40,20 +41,21 @@ export default {
 </script>
 
 <style>
-.profileCardContainer{
+.profileCardContainer {
   overflow: hidden;
   padding: 20px;
 }
-.profileCard{
+.profileCard {
   /* display: inline-block; */
   cursor: pointer;
   float: left;
   width: 150px;
   height: 150px;
   margin: 20px 20px 20px 20px;
-  background: skyblue
+  background: skyblue;
+  border: 1px solid black;
 }
-.displayName{
+.displayName {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,6 +1,7 @@
 <template>
   <div id="addProfile">
-    <h1>This view is AddProfile</h1>
+    <h1>Made a new friend?</h1>
+    <h4>Add their details below!</h4>
     <input
       type="button"
       id="goBackButton"
@@ -11,55 +12,66 @@
       "
       value="Go Back"
     />
-    <div id="insertInfoBox">
+    <br />
+    <div class="insertInfoBox">
       <br /><br />
       <div v-if="!submitted">
         <div>
-          <label for="name">Name:</label>
+          <label for="name">Name: </label>
           <input
             type="text"
-            id="nameInput"
+            class="nameInput"
             name="name"
             v-model="profile.name"
           />
         </div>
+        <br />
+        <br />
         <div>
-          <label for="ageRange">Age range:</label>
+          <label for="ageRange">Age range: </label>
           <input
             type="text"
-            id="ageRangeInput"
+            class="ageRangeInput"
             name="ageRange"
             v-model="profile.ageRange"
           />
         </div>
+        <br />
+        <br />
         <div>
-          <label for="occupation">Occupation:</label>
+          <label for="occupation">Occupation: </label>
           <input
             type="text"
-            id="occupationInput"
+            class="occupationInput"
             name="occupation"
             v-model="profile.occupation"
           />
         </div>
+        <br />
+        <br />
         <div>
-          <label for="interests">Interests:</label>
+          <label for="interests">Interests: </label>
           <input
             type="text"
-            id="interestsInput"
+            class="interestsInput"
             name="interests"
             v-model="profile.interests"
           />
         </div>
+        <br />
+        <br />
         <div>
-          <label for="description">Description:</label>
+          <label for="description">Description: </label>
           <input
             type="text"
-            id="descriptionInput"
+            class="descriptionInput"
             name="description"
             v-model="profile.description"
           />
         </div>
-        <button v-on:click="saveProfile">Create New Friend</button>
+        <br />
+        <br />
+        <button v-on:click="saveProfile">Create New Profile</button>
       </div>
 
       <div v-else>
@@ -120,4 +132,27 @@ export default {
 </script>
 
 <style>
+.insertInfoBox{
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  margin: 20px 20px 20px 20px;
+  background: skyblue;
+  border: 2px solid black;
+}
+.nameInput{
+  width: 200px;
+}
+.ageRangeInput{
+  width: 200px;
+}
+.occupationInput{
+  width: 200px;
+}
+.interestsInput{
+  width: 200px;
+}
+.descriptionInput{
+  width: 200px;
+}
 </style>
