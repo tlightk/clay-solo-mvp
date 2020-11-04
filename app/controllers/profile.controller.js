@@ -19,6 +19,7 @@ exports.create = (req, res) => {
         console.log(data);
         res.send(data);
     }).catch(err => {
+        console.error(err)
         res.status(500).send({
             message: err.message
         });
