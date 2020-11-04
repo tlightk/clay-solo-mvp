@@ -5,7 +5,10 @@
     </div>
     <div id="componentsView">
       <template v-if="currentView === 'allProfiles'">
-        <AllProfiles @add="switchToAddProfile" />
+        <AllProfiles
+          @add="switchToAddProfile"
+          v-bind:profilesList="profilesList"
+        />
       </template>
       <template v-if="currentView === 'addProfile'">
         <AddProfile @go-home="switchToAllProfiles" />
@@ -32,7 +35,7 @@ export default {
   },
   data: () => ({
     currentView: "allProfiles",
-    profilesList: [],
+    profilesList: null,
   }),
   methods: {
     switchToAllProfiles() {
@@ -49,7 +52,7 @@ export default {
         .get("/profiles")
         .then((response) => {
           this.profilesList = response.data;
-          console.log(response.data);
+          console.log(this.profilesList);
         })
         .catch((err) => {
           console.log(err);

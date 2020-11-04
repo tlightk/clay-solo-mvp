@@ -76,7 +76,6 @@ export default {
   data() {
     return {
       profile: {
-        id: 0,
         name: "",
         ageRange: "",
         occupation: "",
