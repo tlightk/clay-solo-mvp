@@ -8,9 +8,11 @@
       value="Add New Profile"
     />
 
-    <div id="profileCards" v-if="profilesList">
+    <div class="profileCardContainer" v-if="profilesList">
       <div v-for="(profile, index) in profilesList" :key="index">
-       <span>{{ profile.name }}</span>
+        <div class="profileCard">
+         <span class="displayName">{{ profile.name }}</span>
+        </div>
       </div>
     </div>
 
@@ -38,4 +40,23 @@ export default {
 </script>
 
 <style>
+.profileCardContainer{
+  overflow: hidden;
+  padding: 20px;
+}
+.profileCard{
+  /* display: inline-block; */
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 20px 20px 20px 20px;
+  background: skyblue
+}
+.displayName{
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 </style>
