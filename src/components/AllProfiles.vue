@@ -10,7 +10,7 @@
 
     <div class="profileCardContainer" v-if="profilesList">
       <div v-for="(profile, index) in profilesList" :key="index">
-        <div class="profileCard">
+        <div class="profileCard" v-on:click="$emit('select-profile', [index])">
          <span class="displayName">{{ profile.name }}</span>
         </div>
       </div>
@@ -46,6 +46,7 @@ export default {
 }
 .profileCard{
   /* display: inline-block; */
+  cursor: pointer;
   float: left;
   width: 150px;
   height: 150px;

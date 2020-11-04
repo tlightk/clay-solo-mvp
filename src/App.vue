@@ -7,6 +7,7 @@
       <template v-if="currentView === 'allProfiles'">
         <AllProfiles
           @add="switchToAddProfile"
+          @select-profile="selectProfile"
           v-bind:profilesList="profilesList"
         />
       </template>
@@ -14,7 +15,7 @@
         <AddProfile @go-home="switchToAllProfiles" @refresh="refreshProfiles"/>
       </template>
       <template v-if="currentView === 'singleProfile'">
-        <SingleProfile @go-home="switchToAllProfiles" />
+        <SingleProfile @go-home="switchToAllProfiles" v-bind:selectedProfile="selectedProfile"/>
       </template>
     </div>
   </div>
@@ -36,6 +37,7 @@ export default {
   data: () => ({
     currentView: "allProfiles",
     profilesList: null,
+    selectedProfile: {},
   }),
   methods: {
     switchToAllProfiles() {
@@ -61,6 +63,10 @@ export default {
     refreshProfiles() {
       this.retrieveProfiles();
     },
+    selectProfile(index) {
+      this.currentView = "singleProfile";
+      this.selectedProfile = this.profilesList[index];
+    }
   },
   mounted() {
     this.retrieveProfiles();
