@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <h1 id="appTitle">namaewa</h1>
-    <template v-if="currentView === 'allProfiles'">
-      <AllProfiles @add="switchToAddProfile" />
-    </template>
-    <template v-if="currentView === 'addProfile'">
-      <AddProfile @go-home="switchToAllProfiles" />
-    </template>
-    <template v-if="currentView === 'singleProfile'">
-      <SingleProfile @go-home="switchToSingleProfiles" />
-    </template>
+    <div>
+      <h1 id="appTitle">namaewa</h1>
+    </div>
+    <div id="componentsView">
+      <template v-if="currentView === 'allProfiles'">
+        <AllProfiles @add="switchToAddProfile" />
+      </template>
+      <template v-if="currentView === 'addProfile'">
+        <AddProfile @go-home="switchToAllProfiles" />
+      </template>
+      <template v-if="currentView === 'singleProfile'">
+        <SingleProfile @go-home="switchToAllProfiles" />
+      </template>
+    </div>
   </div>
 </template>
 
@@ -53,11 +57,11 @@ export default {
     },
     refreshProfiles() {
       this.retrieveProfiles();
-    }
+    },
   },
   mounted() {
     this.retrieveProfiles();
-  }
+  },
 };
 </script>
 
