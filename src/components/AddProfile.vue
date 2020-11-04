@@ -6,6 +6,7 @@
       id="goBackButton"
       v-on:click="
         $emit('go-home');
+        $emit('refresh');
         resetAddProfile();
       "
       value="Go Back"

@@ -11,7 +11,7 @@
         />
       </template>
       <template v-if="currentView === 'addProfile'">
-        <AddProfile @go-home="switchToAllProfiles" />
+        <AddProfile @go-home="switchToAllProfiles" @refresh="refreshProfiles"/>
       </template>
       <template v-if="currentView === 'singleProfile'">
         <SingleProfile @go-home="switchToAllProfiles" />
