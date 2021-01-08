@@ -51,4 +51,4 @@ namaewa is deployed via heroku [here](https://namaewa-production.herokuapp.com/)
 * Adjust styling to make the app mobile-friendly
 
 ## Contributing
-Pull requests are welcome and highly encouraged! Feel free to DM me anytime if you have questions/comments/suggestions.
+Pull requests are welcome and highly encouraged! Feel free to contact me anytime if you have any questions/comments/suggestions!
