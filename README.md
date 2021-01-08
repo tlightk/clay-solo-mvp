@@ -6,26 +6,49 @@ When I read Dale Carnegie's book "How to Win Friends and Influence People" this 
 
 I did my note-taking with the default note app on my phone, but deep down I really wanted to make something tailored for this specific situation, so that is how this full stack app conceptualized.
 
+## Tech Stack
+This is a MEVN app and uses the four techs at its core:
+* MongoDB
+* Express
+* Vue
+* Node
+
+Other tech used:
+* Mongoose
+* Axios
 
 ## Project setup
+Install the necessary dependencies with:
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+Split your terminal and on one side, run nodemon (hot-reloadinng) with this:
+```
+npm run dev
+```
+and on the other terminal, run this:
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+Now, you can open up your browser and view the app on
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+http://localhost:8080/
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+With hot-reloading (nodemon), you should be able to see any changes made on the front end by simply refreshing the browser.
+
+## Deployment
+namaewa is deployed via heroku [here](https://namaewa-production.herokuapp.com/).
+
+## Work in Progress
+* Add a way to delete entries
+* Add a way to update entries
+* Implement a login feature using JWT
+* Spice up the app and make it look nicer
+* Adjust styling to make the app mobile-friendly
+
+## Contributing
+Pull requests are welcome and highly encouraged! Feel free to DM me anytime if you have questions/comments/suggestions.
